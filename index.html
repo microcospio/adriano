@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaCheck - Monitoramento da Água</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>AquaCheck</h1>
+        <nav>
+            <a href="#mapa">Mapa</a>
+            <a href="saneamento.html">Saneamento</a>
+            <a href="tratamento.html">Tratamento</a>
+            <a href="feed.html">Envie seu Relatório</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Qualidade da Água em Tempo Real</h2>
+        <p>Ajude a monitorar e melhorar o acesso à água limpa na sua região.</p>
+        <a href="feed.html" class="cta-button">Reportar Problema</a>
+    </section>
+
+    <section id="mapa" class="map-container">
+        <h2>Mapa da Qualidade da Água</h2>
+        <div id="map"></div> <!-- Mapa Leaflet -->
+    </section>
+
+    <footer>
+        <p>© 2023 AquaCheck | Contato: contato@aquacheck.org</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="map.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de Tratamento | AquaCheck</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos da Página de Tratamento */
+.treatment-methods {
+    display: grid;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.method {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.method img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.method-content {
+    padding: 1rem;
+}
+
+.method h3 {
+    color: #1a6fc9;
+    margin-bottom: 1rem;
+}
+
+.method ul {
+    padding-left: 1.5rem;
+    color: #555;
+}
+
+.method li {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .method {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AquaCheck</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="saneamento.html">Saneamento</a>
+            <a href="tratamento.html">Tratamento</a>
+            <a href="feed.html">Envie seu Relatório</a>
+        </nav>
+    </header>
+
+    <main class="content-page">
+        <section class="page-header">
+            <h1>Métodos de Tratamento de Água</h1>
+            <p>Técnicas para purificar água em diferentes situações.</p>
+        </section>
+
+        <section class="treatment-methods">
+            <div class="method">
+                <img src="img/filtro.png" alt="Filtro de Barro">
+                <div class="method-content">
+                    <h3>Filtro de Barro</h3>
+                    <p>O tradicional filtro brasileiro com velas de cerâmica que remove impurezas e bactérias.</p>
+                    <ul>
+                        <li>Custo baixo</li>
+                        <li>Não precisa de energia</li>
+                        <li>Eficiência comprovada</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="method">
+                <img src="img/cloracao.png" alt="Cloração">
+                <div class="method-content">
+                    <h3>Cloração</h3>
+                    <p>Adição de cloro para desinfecção, usado em estações de tratamento e emergências.</p>
+                    <ul>
+                        <li>Mata bactérias e vírus</li>
+                        <li>Baixo custo</li>
+                        <li>Dosagem precisa é crucial</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="method">
+                <img src="img/osmose.png" alt="Osmose Reversa">
+                <div class="method-content">
+                    <h3>Osmose Reversa</h3>
+                    <p>Sistema avançado que remove até 99% dos contaminantes usando membranas especiais.</p>
+                    <ul>
+                        <li>Alto custo inicial</li>
+                        <li>Necessita manutenção</li>
+                        <li>Ideal para indústrias</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 AquaCheck | contato@aquacheck.org</p>
+    </footer>
+</body>
+</html>

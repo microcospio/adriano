@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>AquaCheck</h1>
+        <nav>
+            <a href="index.html#mapa">Mapa</a>
+            <a href="saneamento.html">Saneamento</a>
+            <a href="tratamento.html">Tratamento</a>
+            <a href="feed.html">Envie seu Relatório</a>
+        </nav>
+    </header>
+    <section id="feedback" class="feedback-section">
+        <div class="feedback-container">
+            <h2 class="section-title">Reporte a Qualidade da Água na Sua Região</h2>
+            <p class="section-subtitle">Sua contribuição ajuda a melhorar o saneamento básico</p>
+            
+                <div class="form-group">
+                    <label for="location">Localização</label>
+                    <input type="text" id="location" class="inputs" list="cidade" placeholder="Ex: São Paulo - SP" required>
+                    <datalist id="cidade"></datalist>
+                </div>
+                
+                <div class="form-group">
+                    <label for="quality">Qualidade da Água</label>
+                    <select id="quality" class="inputs" required>
+                        <option value="">Selecione...</option>
+                        <option value="good">Boa (Própria para consumo)</option>
+                        <option value="regular">Regular (Necessita filtragem)</option>
+                        <option value="bad">Ruim (Imprópria para consumo)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Descrição</label>
+                    <textarea id="description" placeholder="Descreva cor, odor, problemas..." class="inputs"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="photo">Foto (Opcional)</label>
+                    <input type="file" id="photo" accept="image/*" class="inputs">
+                </div>
+                
+                <button class="submit-btn" onclick="enviado()">Enviar Relatório</button>
+            
+        </div>
+    </section>
+
+    <script>
+
+        function enviado(){
+
+            let a = document.querySelectorAll(".inputs");
+            a.forEach(input => {
+    input.value = '';
+  });
+            console.log(a)
+            Swal.fire({
+  icon: "success",
+  title: "Relatório enviado. Obrigado por compartilhar seu feedback.",
+  showConfirmButton: false,
+  timer: 1500
+});
+        }
+        async function carregarMunicipios() {
+          try {
+            const resposta = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/municipios');
+            const dados = await resposta.json();
+    
+            const datalist = document.getElementById('cidade');
+    
+            dados.forEach(municipio => {
+              const nome = municipio.nome;
+              const uf = municipio.microrregiao.mesorregiao.UF.sigla;
+              const option = document.createElement('option');
+              option.value = `${nome} - ${uf}`;
+              datalist.appendChild(option);
+            });
+          } catch (erro) {
+            console.error('Erro ao carregar municípios do IBGE:', erro);
+          }
+        }
+    
+        carregarMunicipios();
+      </script>
+</body>
+</html>
